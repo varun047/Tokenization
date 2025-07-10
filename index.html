@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="relative text-white overflow-x-hidden">
+  <!-- Two-gradient Background Layer -->
+  <div class="background-layer z-[-10]"></div>
+
+  <!-- Page Content -->
+  <div class="relative min-h-screen z-10 overflow-visible">
+    <!-- Navigation Bar -->
+    <nav class="flex items-center justify-between px-10 py-4 max-w-3xl mx-auto mt-10 glass rounded-full relative z-10" style="position:relative; height:64px;">
+      <ul class="flex items-center space-x-8 text-sm font-medium w-full h-full" style="position:relative; height:64px;">
+        <li class="nav-home" style="position:absolute; left:15px; top:55%; transform:translateY(-50%);"><a href="#" class="font-extrabold home-gradient-text">HOME</a></li>
+        <li class="nav-explore" style="position:absolute; left:150px; top:50%; transform:translateY(-50%);"><a href="#" class="text-white hover:text-purple-200">Explore Assets</a></li>
+        <li class="nav-issuers" style="position:absolute; left:320px; top:50%; transform:translateY(-50%);"><a href="#" class="text-white hover:text-purple-200">For Issuers</a></li>
+        <li class="nav-about" style="position:absolute; left:470px; top:50%; transform:translateY(-50%);"><a href="#" class="text-white hover:text-purple-200">About</a></li>
+      </ul>
+      <button class="text-sm px-6 py-2 rounded-full gradient-login font-bold text-white shadow-md hover:opacity-90" style="position:absolute; right:24px; top:50%; transform:translateY(-50%);">LOGIN</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative w-full h-[110vh] mt-10 px-10 max-w-7xl mx-auto overflow-visible">
+      <!-- Text Content -->
+      <div class="absolute left-[5%] top-[15%] max-w-lg z-10">
+        <h1 class="text-4xl font-extrabold mb-4 leading-tight custom-text-color">
+          Invest in Real-World Assets,<br>
+          <span class="text-4xl font-extrabold mb-4 leading-tight custom-text-color2">Digitally</span>
+        </h1>
+        <p class="text-base leading-relaxed custom-text-color1">
+          Tokenize tangible assets like real estate, art, or equity into secure digital tokens.<br>
+          Trade with transparency, earn with confidence.
+        </p>
+      </div>
+
+      <!-- Coin -->
+      <img
+        src="assets/dollar-coin.png"
+        alt="coin"
+        class="w-36 h-36 absolute coin-hover z-20"
+        style="top: 25%; left: 63%; transform: translateX(-50%);"
+      />
+
+      <!-- Buttons -->
+      <a
+        href="tokenization.html" class="btn-glass flex items-center gap-3 px-6 py-3 rounded-full w-48 justify-start absolute z-20"
+        style="top: 25%; left: 76.5%;"
+      >
+        <img src="assets/shopping-trolley.png" alt="Borrow" class="w-10 h-10" />
+        <span class="font-semibold text-white">BORROW</span>
+      </a>
+
+      <a
+        href="tokenization.html" class="btn-glass flex items-center gap-3 px-6 py-3 rounded-full w-48 justify-start absolute z-20"
+        style="top: 40%; left: 76.5%;"
+      >
+        <img src="assets/empty-shopping-trolley.png" alt="Invest" class="w-10 h-10" />
+        <span class="font-semibold text-white">INVEST</span>
+      </a>
+    </section>
+  </div>
+</body>
+</html>

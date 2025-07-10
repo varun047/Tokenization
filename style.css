@@ -1,0 +1,95 @@
+body {
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+/* Background layer container */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Left (larger) gradient block */
+.background-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #E2CBFF, #48118C);
+  /* Covers most of the background */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: -2;
+}
+
+/* Right (smaller) gradient block */
+.background-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #8B79DD, #0D1B2A);
+  clip-path: polygon(72% 0, 100% 0, 100% 100%, 55% 100%);
+  z-index: -1;
+}
+
+/* Coin hover glow effect */
+.coin-hover {
+  transition: all 0.3s ease;
+}
+.coin-hover:hover {
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.5));
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 0, 0.15);
+}
+
+/* Glass-style buttons */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Gradient login button */
+.gradient-login {
+  background: linear-gradient(to right, #a78bfa, #6366f1);
+}
+
+/* Custom text color for hero section */
+.custom-text-color {
+  color: #F8F0FB; 
+}
+
+.custom-text-color1 {
+  color: #0D1B2A;
+}
+
+.custom-text-color2 {
+  color: #212774;
+}
+
+.home-gradient-text {
+  background: linear-gradient(90deg, #48118C, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: 2rem; 
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  font-weight: 700;
+}

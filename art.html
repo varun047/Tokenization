@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tokenize Equity</title>
+  <link rel="stylesheet" href="style3.css" />
+</head>
+<body>
+  <section class="token-section">
+    <div class="asset-card">
+      <div class="gradient-overlay"></div>
+      <div class="header">
+        <h2>Tokenize Equity</h2>
+        <p class="subtitle">Offer fractional ownership in your company or project</p>
+      </div>
+      <form id="equityForm">
+        <label>Company Name</label>
+        <input type="text" name="company" required placeholder="Enter company name" class="input-theme" />
+        <label>Equity Type</label><br>
+        <input type="checkbox" name="type" value="common" /> Common Stock
+        <input type="checkbox" name="type" value="preferred" /> Preferred Stock
+        <input type="checkbox" name="type" value="convertible" /> Convertible Note<br><br>
+        <label>Number of Shares</label>
+        <input type="number" name="shares" min="1" placeholder="e.g. 1000" class="input-theme" />
+        <label>Sector</label>
+        <input type="text" name="sector" placeholder="e.g. Technology" class="input-theme" />
+        <label>Dividend Eligible?</label>
+        <input type="checkbox" name="dividend" /> Yes<br><br>
+        <button type="submit" class="btn-theme">Submit</button>
+        <div class="status" id="output"></div>
+      </form>
+    </div>
+  </section>
+  <script>
+    document.getElementById("equityForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        company: form.company.value.trim(),
+        type: Array.from(form.querySelectorAll('input[name=type]:checked')).map(cb => cb.value),
+        shares: form.shares.value,
+        sector: form.sector.value.trim(),
+        dividend: form.dividend.checked
+      };
+      const output = document.getElementById("output");
+      output.innerText = "✅ Equity Tokenization Info:\n" + JSON.stringify(data, null, 2);
+      output.style.display = "block";
+      form.reset();
+    });
+  </script>
+</body>
+</html> 

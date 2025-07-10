@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tokenize Commodities</title>
+  <link rel="stylesheet" href="style3.css" />
+</head>
+<body>
+  <section class="token-section">
+    <div class="asset-card">
+      <div class="gradient-overlay"></div>
+      <div class="header">
+        <h2>Tokenize Commodities</h2>
+        <p class="subtitle">Trade and fractionalize gold, oil, or rare metals digitally</p>
+      </div>
+      <form id="commoditiesForm">
+        <label>Commodity Type</label><br>
+        <input type="checkbox" name="type" value="gold" /> Gold
+        <input type="checkbox" name="type" value="oil" /> Oil
+        <input type="checkbox" name="type" value="metals" /> Rare Metals
+        <input type="checkbox" name="type" value="other" /> Other<br><br>
+        <label>Quantity (kg/oz/barrels)</label>
+        <input type="number" name="quantity" min="0" step="0.01" placeholder="e.g. 100" class="input-theme" />
+        <label>Storage Location</label>
+        <input type="text" name="storage" placeholder="e.g. London Vault" class="input-theme" />
+        <label>Insured?</label>
+        <input type="checkbox" name="insured" /> Yes<br><br>
+        <button type="submit" class="btn-theme">Submit</button>
+        <div class="status" id="output"></div>
+      </form>
+    </div>
+  </section>
+  <script>
+    document.getElementById("commoditiesForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        type: Array.from(form.querySelectorAll('input[name=type]:checked')).map(cb => cb.value),
+        quantity: form.quantity.value,
+        storage: form.storage.value.trim(),
+        insured: form.insured.checked
+      };
+      const output = document.getElementById("output");
+      output.innerText = "✅ Commodities Tokenization Info:\n" + JSON.stringify(data, null, 2);
+      output.style.display = "block";
+      form.reset();
+    });
+  </script>
+</body>
+</html>

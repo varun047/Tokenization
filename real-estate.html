@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tokenize Real Estate</title>
+  <link rel="stylesheet" href="style3.css" />
+</head>
+<body class="p-8">
+  <div class="asset-card">
+    <div class="gradient-overlay"></div>
+    <div class="header">
+      <h2>Tokenize Real Estate</h2>
+      <p class="subtitle">Convert properties into secure digital tokens</p>
+    </div>
+    <form id="realEstateForm">
+      <label>Property Title</label>
+      <input type="text" name="title" required placeholder="Enter property title" class="input-theme" />
+      <label>Property Type</label><br>
+      <input type="checkbox" name="type" value="residential" /> Residential
+      <input type="checkbox" name="type" value="commercial" /> Commercial
+      <input type="checkbox" name="type" value="land" /> Land
+      <input type="checkbox" name="type" value="other" /> Other<br><br>
+      <label>Property Value (USD)</label>
+      <input type="number" name="value" min="0" step="0.01" placeholder="e.g. 500000" class="input-theme" />
+      <label>Location</label>
+      <input type="text" name="location" placeholder="City, Country" class="input-theme" />
+      <label>Fractional Ownership?</label>
+      <input type="checkbox" name="fractional" /> Yes<br><br>
+      <button type="submit" class="btn-theme">Submit</button>
+      <div class="status" id="output"></div>
+    </form>
+  </div>
+  <script>
+    document.getElementById("realEstateForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        title: form.title.value.trim(),
+        type: Array.from(form.querySelectorAll('input[name=type]:checked')).map(cb => cb.value),
+        value: form.value.value,
+        location: form.location.value.trim(),
+        fractional: form.fractional.checked
+      };
+      const output = document.getElementById("output");
+      output.innerText = "✅ Real Estate Tokenization Info:\n" + JSON.stringify(data, null, 2);
+      output.style.display = "block";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
